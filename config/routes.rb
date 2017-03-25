@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'sessions#new'
   get  'login', to: 'sessions#new'
   resources :users
