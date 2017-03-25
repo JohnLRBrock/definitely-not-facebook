@@ -1,24 +1,16 @@
-# README
+2017-03-24
+John Brock
+Odin Project
+http://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Final Project: Facebook Clone
 
-Things you may want to cover:
+Things used in project:
+Multiple models with different relationships and validations
+Authentication with devise and Omniauth
+Test Driven Development with 
 
-* Ruby version
 
-* System dependencies
+TODO: add line /config/environments/development.rb with the domainname equivilant before pushing to heroku
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+config.action_mailer.default_url_options = { :host => 'localhost:3000' }
