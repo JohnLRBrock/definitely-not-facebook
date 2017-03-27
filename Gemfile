@@ -41,6 +41,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'figaro'
   gem 'guard-rspec', require: false
+  gem 'rails-controller-testing'
 end
 
 group :development do
