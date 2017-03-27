@@ -40,6 +40,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
   gem 'figaro'
+  gem 'guard-rspec', require: false
 end
 
 group :development do
