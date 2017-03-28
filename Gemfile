@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # handle authentication using Devise
 gem 'devise'
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

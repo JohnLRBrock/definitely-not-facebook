@@ -58,4 +58,5 @@ Rails.application.configure do
   else
     5.times { puts "add host #{__FILE__}" }
   end
+
 end

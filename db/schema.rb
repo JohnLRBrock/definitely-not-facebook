@@ -16,32 +16,32 @@ ActiveRecord::Schema.define(version: 20170328133215) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "post_id"
-    t.integer  "user_id"
-    t.text     "body"
+    t.integer  "post_id",    null: false
+    t.integer  "user_id",    null: false
+    t.text     "body",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "friends", id: false, force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "friend_id"
+    t.integer  "user_id",    null: false
+    t.integer  "friend_id",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_friends_on_user_id", using: :btree
   end
 
   create_table "likes", id: false, force: :cascade do |t|
-    t.integer  "post_id"
-    t.integer  "user_id"
+    t.integer  "post_id",    null: false
+    t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_likes_on_post_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer  "user_id"
-    t.text     "body"
+    t.integer  "user_id",    null: false
+    t.text     "body",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20170328133215) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

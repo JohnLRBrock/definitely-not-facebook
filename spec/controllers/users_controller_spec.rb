@@ -24,13 +24,14 @@ RSpec.describe UsersController, type: :controller do
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { name: 'George', email: 'George@gmail.com',
+    { email: 'George@gmail.com',
       password: 'password', password_confirmation: 'password'}
   }
 
   let(:invalid_attributes) {
-    { name: nil, email: nil, password: nil, password_confirmation: nil }
+    { email: nil, password: nil, password_confirmation: nil }
   }
+
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

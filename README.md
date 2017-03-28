@@ -1,8 +1,14 @@
-2017-03-24 John Brock Odin Project http://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project
+2017-03-28
+John Brock
+Odin Project
+http://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project
 
 Final Project: Facebook Clone
 
-Things used in project: Multiple models with different relationships and validations Authentication with devise and Omniauth Test Driven Development with
+Things used in project: 
+  Multiple models with different relationships and validations
+  Authentication with devise
+  Test Driven Development
 
 TODO: configure /config/environments/development.rb to work in production with heroku as a host
 

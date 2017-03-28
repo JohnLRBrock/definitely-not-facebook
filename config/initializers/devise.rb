@@ -6,6 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
+
   # config.secret_key = 'f368e47365ebe1cd66bbbbd48aacc74620b9a1fb2ffadeab58b4e28f0796f9efb2447b93bced8f411ade47afa908d1a2c4c8e17a1f6deeab8c418c1d78cf76d1'
 
   # ==> Mailer Configuration
@@ -109,6 +110,8 @@ Devise.setup do |config|
 
   # Set up a pepper to generate the hashed password.
   # config.pepper = '6fa547965a23a9bcb35269585492c6c30ebce5f3dbffd768005a98534c19077ed5c60ab41e621fc6efa6e10ee4b6d9c4555f2d9d799f0966da146424f1538996'
+  # config.pepper = 'eff1f69f91e6337d2d1012ad3011a2dcfb452b42cf1497ac512ca54eb77dd290dbe71ea824785d9a1d91850ffe9f464bfcf79c4f18363a3ce4d35f9bc192157a'
+
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -251,6 +254,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  #config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
