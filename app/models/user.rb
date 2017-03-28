@@ -10,7 +10,6 @@ class User < ApplicationRecord
   
   before_save do 
     self.email = email.downcase
-    self.name = name.downcase
   end
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }
