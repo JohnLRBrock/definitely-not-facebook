@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Friend, type: :model do
   before(:all) do
     User.delete_all
-    User.create(name: 'adam', email:'adam@example.com')
-    User.create(name: 'eve', email:'eve@example.com')
+    User.create(email:'adam@example.com', password: 'foobar', password_confirmation: 'foobar')
+    User.create(email:'eve@example.com',  password: 'foobar', password_confirmation: 'foobar')
   end
   it 'requires a user_id' do
     no_id = Friend.new(friend_id: User.first.id)

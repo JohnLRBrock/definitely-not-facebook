@@ -1,12 +1,6 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<% [:name, :email, :location, :occupation, :age, :self_summary].each do |attribute| %>
+  <%= user_attribute(@user, attribute) %>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
