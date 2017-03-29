@@ -1,2 +1,7 @@
 <h3><%= post.user.name %></h3>
 <p><%= post.body %></p>
+
+<%= form_tag '/comments', method: 'post' do %>
+  <%= text_area_tag :body %><br>
+  <%= submit_tag "Reply" %>
+<% end %>
