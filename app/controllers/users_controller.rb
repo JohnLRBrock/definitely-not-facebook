@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @friends = @user.friends
+    @posts = User.find(params[:id]).posts.order(created_at: :desc)
   end
 
   # PATCH/PUT /users/1

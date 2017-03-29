@@ -3,6 +3,7 @@
   <%= user_attribute(@user, attribute) %>
 <% end %>
 
+
 <% if @user != current_user && !friends?(@user, current_user) %>
   <%= link_to 'Friend', new_friendship_path(@user), method: :post %> | 
 <% end %>
@@ -13,3 +14,9 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<%# unless @posts.nil? %>
+  <% @posts.each do |post| %>
+    <%= render 'shared/post', post: post %>
+  <% end %>
+<%# end %>
