@@ -1,5 +1,14 @@
-<% [:name, :email, :location, :occupation, :age, :self_summary].each do |attribute| %>
+<% [:name, :email, :location, :occupation,
+    :age, :self_summary].each do |attribute| %>
   <%= user_attribute(@user, attribute) %>
+<% end %>
+
+<% if @user != current_user && !friends?(@user, current_user) %>
+  <%= link_to 'Friend', new_friendship_path(@user), method: :post %> | 
+<% end %>
+
+<% if @user != current_user && friends?(@user, current_user) %>
+  <%= link_to 'Destroy Freindship', destroy_friendship_path(@user), method: :delete %>
 <% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

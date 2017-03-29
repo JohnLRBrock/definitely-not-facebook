@@ -1,2 +1,15 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<% @posts.each do |post| %>
+  <%= render 'post', post: post %>
+<% end %>
+<%= form_for @post do |f| %>
+
+  <div class="field">
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

@@ -6,7 +6,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :likes
-  has_and_belongs_to_many :friends, join_table: 'friends'
+  has_many :friendships
+  has_many :friends, through: :friendships
   
   before_save do 
     self.email = email.downcase

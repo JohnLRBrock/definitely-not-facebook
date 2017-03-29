@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :new_friend]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   # GET /users
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @friends = @user.friends
   end
 
   # PATCH/PUT /users/1
@@ -35,12 +36,6 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def new_friend
-    friend = User.find(params[:friend_id])
-    @user.friends << friend
-    friend.friends << @user
   end
 
   private
