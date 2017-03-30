@@ -11,8 +11,6 @@
 
 <% end %>
 
-<% unless @posts.nil? %>
-  <% @posts.each do |post| %>
-    <%= render 'shared/post', post: post %>
-  <% end %>
+<% feed_posts.each do |post| %>
+  <%= render 'shared/post', post: post %>
 <% end %>

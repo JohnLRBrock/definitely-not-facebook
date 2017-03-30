@@ -8,11 +8,6 @@ RSpec.describe PostsController, type: :controller do
     User.create(email:'steve@example.com', password: 'foobar', password_confirmation: 'foobar')
   end
 
-  context '#feed_posts' do
-    it 'returns all the posts of the user and their friends' do
-      skip 'Implement friends first'
-    end
-  end
 =begin
   describe "GET #index" do
     it "returns http success" do
