@@ -1,4 +1,9 @@
-<% [:name, :email, :location, :occupation,
+
+<strong><%= @user.name %></strong>
+<br>
+<%= gravatar_for @user %>
+
+<% [:email, :location, :occupation,
     :age, :self_summary].each do |attribute| %>
   <%= user_attribute(@user, attribute) %>
 <% end %>
