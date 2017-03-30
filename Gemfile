@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # handle authentication using Devise
 gem 'devise'
+gem 'omniauth-facebook'
 
 
 # Use Capistrano for deployment
