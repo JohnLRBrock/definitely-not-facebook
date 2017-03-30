@@ -1,0 +1,12 @@
+<h3><%= post.user.name %></h3>
+<p><%= post.body %></p>
+
+<% post.comments.each do |comment| %>
+  <%= render 'shared/comment', comment: comment %>
+<% end %> 
+
+<%= form_tag '/comments', method: 'post' do %>
+  <%= text_area_tag 'comment[body]' %><br>
+  <%= hidden_field_tag 'comment[post_id]', post.id %>
+  <%= submit_tag "Reply" %>
+<% end %>

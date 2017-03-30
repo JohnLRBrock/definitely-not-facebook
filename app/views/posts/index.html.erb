@@ -1,0 +1,16 @@
+<%= form_for @post do |f| %>
+
+  <div class="field">
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+<% feed_posts.each do |post| %>
+  <%= render 'shared/post', post: post %>
+<% end %>

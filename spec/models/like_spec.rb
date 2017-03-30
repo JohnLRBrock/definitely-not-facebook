@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Like, type: :model do
   before(:all) do
     User.delete_all
-    User.create(name: 'adam', email:'adam@example.com')
+    User.create(email:'adam@example.com', password: 'foobar', password_confirmation: 'foobar')
     User.first.posts.build(body: "Hello World").save
   end
   context 'Building likes without requisite paramaters' do

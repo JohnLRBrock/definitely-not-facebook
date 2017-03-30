@@ -4,7 +4,7 @@ RSpec.describe Comment, type: :model do
   before(:all) do
     User.delete_all
     Comment.delete_all
-    User.create(name: 'adam', email:'adam@example.com')
+    User.create(email:'adam@example.com', password: 'foobar', password_confirmation: 'foobar')
     User.first.posts.build(body: "Hello World").save
     User.first.comments.build(post_id: Post.first.id).save
   end
