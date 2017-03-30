@@ -1,12 +1,22 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<% [:name, :email, :location, :occupation,
+    :age, :self_summary].each do |attribute| %>
+  <%= user_attribute(@user, attribute) %>
+<% end %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+
+<% if @user != current_user && !friends?(@user, current_user) %>
+  <%= link_to 'Friend', new_friendship_path(@user), method: :post %> | 
+<% end %>
+
+<% if @user != current_user && friends?(@user, current_user) %>
+  <%= link_to 'Destroy Freindship', destroy_friendship_path(@user), method: :delete %>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<%# unless @posts.nil? %>
+  <% @posts.each do |post| %>
+    <%= render 'shared/post', post: post %>
+  <% end %>
+<%# end %>

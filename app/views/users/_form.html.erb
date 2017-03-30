@@ -21,6 +21,26 @@
     <%= f.text_field :email %>
   </div>
 
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :occupation %>
+    <%= f.text_field :occupation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %>
+    <%= f.number_field :age, in: 1..150 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :self_summary %>
+    <%= f.text_area :self_summary %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
