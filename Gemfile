@@ -45,6 +45,7 @@ group :development, :test do
   gem 'figaro'
   gem 'guard-rspec', require: false
   gem 'rails-controller-testing'
+  gem 'letter_opener'
 end
 
 group :development do
