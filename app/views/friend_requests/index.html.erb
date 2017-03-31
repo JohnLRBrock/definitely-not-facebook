@@ -1,0 +1,5 @@
+<% @requests.each do |request| %>
+  <%= request.friend_id %>
+  <%= link_to 'Accept request', new_friendship_path(request.friend_id) %>
+  <%= link_to 'Ignore request', destroy_friend_request(request.friend_id) %>
+<% end %>

@@ -4,6 +4,8 @@ class FriendshipsController < ApplicationController
     friend = User.find params[:friend_id]
     user.friends << friend
     friend.friends << user
+    user.friend_requests.destroy friend
+    friend.friend_requests.destroy user
     flash[:notice] = "You are now friends with #{friend.name}"
     redirect_to friend
   end

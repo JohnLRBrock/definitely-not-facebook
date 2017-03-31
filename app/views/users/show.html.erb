@@ -1,4 +1,3 @@
-
 <strong><%= @user.name %></strong>
 <br>
 <%= gravatar_for @user %>
@@ -9,8 +8,9 @@
 <% end %>
 
 
-<% if @user != current_user && !friends?(@user, current_user) %>
-  <%= link_to 'Friend', new_friendship_path(@user), method: :post %> | 
+<% if @user != current_user && !friends?(@user, current_user) 
+         && !friend_requests?(@user, _current_user%>
+  <%= link_to 'Friend_request', new_friend_request_path(@user), method: :post %> | 
 <% end %>
 
 <% if @user != current_user && friends?(@user, current_user) %>
