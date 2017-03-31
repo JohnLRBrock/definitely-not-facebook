@@ -14,6 +14,11 @@ class User < ApplicationRecord
   before_save do 
     self.email = email.downcase
   end
+  after_create :welcome_email
+
+  def welcome_email
+    UserMailer.welcome_email(self).deliver_now
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
