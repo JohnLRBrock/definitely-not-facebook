@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170331002754) do
+=======
+ActiveRecord::Schema.define(version: 20170331014533) do
+>>>>>>> likes
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170331002754) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "likes", id: false, force: :cascade do |t|
+  create_table "likes", force: :cascade do |t|
     t.integer  "post_id",    null: false
     t.integer  "user_id",    null: false
     t.datetime "created_at", null: false
