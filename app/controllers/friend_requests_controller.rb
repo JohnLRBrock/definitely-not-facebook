@@ -1,13 +1,12 @@
 class FriendRequestsController < ApplicationController
   def index
-    @requests = current_user.friend_requests.all
+    @friend = current_user.friend_requests.pluck(:friend_id).uniq
   end
 
   def create
     user = current_user
     friend = User.find params[:friend_id]
-    user.friend_requests << friend
-    friend.friend_requests << user
+    friend.friend_requests.create(friend_id: user.id)
     flash[:notice] = "Friend request has been sent to #{friend.name}"
     redirect_to friend
   end
@@ -15,8 +14,13 @@ class FriendRequestsController < ApplicationController
   def destroy
     user = current_user
     friend = User.find params[:friend_id]
-    user.friend_requests.destroy friend
-    friend.friend_requests.destroy user
+    request_hash = { friend_id: friend.id, user_id: user.id }
+    while FriendRequest.exists? request_hash
+      FriendRequest.find_by(request_hash).destroy
+    end
+    while FriendRequest.exists? request_hash
+      FriendRequest.find_by(request_hash).destroy
+    end
     redirect_to friend
   end
 end
