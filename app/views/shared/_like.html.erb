@@ -1,0 +1,10 @@
+<% if liked?(post) %>
+  <%= form_tag "/likes/#{post.id}", method: 'delete' do %>
+    <%= submit_tag "Unlike" %>
+  <% end %>
+<% else %>
+  <%= form_tag '/likes/', method: 'post' do %>
+    <%= hidden_field_tag 'like[post_id]', post.id %>
+    <%= submit_tag "Like" %>
+  <% end %>
+<% end %>

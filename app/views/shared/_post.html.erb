@@ -1,6 +1,8 @@
 <h3><%= post.user.name %></h3>
 <%= gravatar_for post.user %>
 <p><%= post.body %></p>
+<p><%= number_of_likes(post) %></p>
+<%= render 'shared/like', post: post %>
 
 <% post.comments.each do |comment| %>
   <%= render 'shared/comment', comment: comment %>
