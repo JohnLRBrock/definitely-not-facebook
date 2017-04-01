@@ -1,5 +1,7 @@
 <%= link_to 'Dashboard', root_path %> |
 <%= link_to 'Users', users_path %> |
-<%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
-<%= link_to('Friend Requests', friend_requests_path) if any_requests?(current_user) %>
-Hello, <%= current_user.name %>
+<%= link_to 'Logout', destroy_user_session_path, :method => :delete %> |
+<% if any_requests?(current_user) %>
+  <%= link_to('Friend Requests', friend_requests_path) %> |
+<% end %>
+Hello, <%= link_to "#{current_user.name}", current_user %>

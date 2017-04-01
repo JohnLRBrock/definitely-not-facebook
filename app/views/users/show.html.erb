@@ -24,15 +24,16 @@
 <% end %>
 <%= link_to 'Back', users_path %>
 <br>
-<h3>Friends:</h3><br>
-
+<h3>Friends:</h3>
+<%= 'No friends' unless @friends.any? %> 
 <% @friends.each do |friend| %>
   <%= gravatar_for friend %>
   <%= link_to "#{friend.name}", friend %>
   <br>
 <% end %>
-<h3>Posts:</h3><br>
+<h3>Posts:</h3>
 
+<%= 'No posts' unless @posts.any? %>
 <% @posts.each do |post| %>
   <%= render 'shared/post', post: post %>
 <% end %>
