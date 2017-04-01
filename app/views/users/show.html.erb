@@ -23,9 +23,16 @@
   <%= link_to 'Edit', edit_user_path(current_user) %> |
 <% end %>
 <%= link_to 'Back', users_path %>
+<br>
+<h3>Friends:</h3><br>
 
-<%# unless @posts.nil? %>
-  <% @posts.each do |post| %>
-    <%= render 'shared/post', post: post %>
-  <% end %>
-<%# end %>
+<% @friends.each do |friend| %>
+  <%= gravatar_for friend %>
+  <%= link_to "#{friend.name}", friend %>
+  <br>
+<% end %>
+<h3>Posts:</h3><br>
+
+<% @posts.each do |post| %>
+  <%= render 'shared/post', post: post %>
+<% end %>
