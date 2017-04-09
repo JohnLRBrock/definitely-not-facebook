@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   def create
-    puts params
     current_user.comments.create(comment_params)
     redirect_to root_url
   end
