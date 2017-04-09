@@ -1,6 +1,6 @@
 class FriendRequestsController < ApplicationController
   def index
-    @friend = current_user.friend_requests.pluck(:friend_id).uniq
+    @friends = current_user.friend_requests.pluck(:friend_id).uniq
   end
 
   def create
