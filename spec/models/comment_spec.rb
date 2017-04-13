@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Comment, type: :model do
   before(:all) do
     User.destroy_all
+    Post.destroy_all
     Comment.destroy_all
     User.create(email:'adam@example.com', password: 'foobar', password_confirmation: 'foobar')
     User.first.posts.build(body: "Hello World").save
@@ -37,6 +38,18 @@ RSpec.describe Comment, type: :model do
       expect(Post.first.comments.build(valid_params).save).to be true
       expect(Post.first.comments.build(valid_params).save).to be true
       expect(num + 2).to eq(Comment.count)
+    end
+  end
+
+  context "scope: chronological_order" do
+    it "orders them chronologically" do
+      post = User.first.posts.create!(body: "hello world")
+      comment1 = post.comments.create!(user_id: User.first.id, body: "first comment")
+      comment2 = post.comments.create!(user_id: User.first.id, body: "second comment")
+      #touch the first comment to change default order
+      comment1.touch
+
+      expect(post.reload.comments.chronological_order).to eq([comment1, comment2])
     end
   end
 end
