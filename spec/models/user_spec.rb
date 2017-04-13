@@ -3,9 +3,11 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   # reset database and populate it with adam and eve
   before(:all) do
-    User.delete_all
-    User.find_or_create_by(name: 'adam', email:'adam@example.com')
-    User.find_or_create_by(name: 'eve', email:'eve@example.com')
+    User.destroy_all
+    User.create!(name: 'adam', email:'adam@example.com',
+                           password: 'foobar', password_confirmation: 'foobar')
+    User.create!(name: 'eve', email:'eve@example.com',
+                           password: 'foobar', password_confirmation: 'foobar')
   end
   
   describe "attributes" do
