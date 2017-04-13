@@ -37,4 +37,16 @@ RSpec.describe FriendRequest, type: :model do
       expect(reflexive_friend_request.save).to be false
     end
   end
+
+  context 'friend request already exists' do
+    it 'fails to save' do
+      skip "create tests to make sure that the freind helpers are working"
+    end
+  end
+
+  context 'friendship already exists' do
+    it 'fails to save' do
+      skip "create tests to make sure that the freind helpers are working"
+    end
+  end
 end

@@ -1,19 +1,8 @@
 class FriendshipsController < ApplicationController
   include FriendRequestsHelper
   def create
-    user = current_user
     friend = User.find params[:friend_id]
-    # create friendships
-    user.friends << friend
-    friend.friends << user
-    # destroy friend requests
-    request_hash = { friend_id: friend.id, user_id: user.id }
-    while FriendRequest.exists? request_hash
-      FriendRequest.find_by(request_hash).destroy
-    end
-    while FriendRequest.exists? request_hash
-      FriendRequest.find_by(request_hash).destroy
-    end
+    friend_user(friend)
     flash[:notice] = "You are now friends with #{friend.name}"
     if any_requests?(current_user)
       redirect_to friend_requests_url
@@ -23,10 +12,20 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    user = current_user
     friend = User.find params[:friend_id]
-    user.friends.destroy friend
-    friend.friends.destroy user
+    unfriend_user(friend)
     redirect_to friend
   end
+
+  private
+    def friend_user(friend)
+      current_user.friends << friend
+      friend.friends << current_user
+      destroy_friend_request(user, friend)
+    end
+
+    def unfriend_user(friend)
+      current_user.friends.destroy friend
+      friend.friends.destroy current_user
+    end
 end
