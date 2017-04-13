@@ -32,12 +32,11 @@ RSpec.describe Comment, type: :model do
     end
   end
 
-  context "successfully creating comments" do
+  context "successfully creating a comment" do
     it "creates a comment" do
-      num = Comment.count
+      num_comments_before = Comment.count
       expect(Post.first.comments.build(valid_params).save).to be true
-      expect(Post.first.comments.build(valid_params).save).to be true
-      expect(num + 2).to eq(Comment.count)
+      expect(num_comments_before + 1).to eq(Comment.count)
     end
   end
 
