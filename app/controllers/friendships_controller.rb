@@ -21,7 +21,7 @@ class FriendshipsController < ApplicationController
     def friend_user(friend)
       current_user.friends << friend
       friend.friends << current_user
-      destroy_friend_request(user, friend)
+      destroy_friend_request(friend)
     end
 
     def unfriend_user(friend)

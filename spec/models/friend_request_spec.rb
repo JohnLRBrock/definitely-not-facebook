@@ -40,13 +40,13 @@ RSpec.describe FriendRequest, type: :model do
 
   context 'friend request already exists' do
     it 'fails to save' do
-      skip "create tests to make sure that the freind helpers are working"
+      skip "create tests to make sure that the friend helpers are working"
     end
   end
 
   context 'friendship already exists' do
     it 'fails to save' do
-      skip "create tests to make sure that the freind helpers are working"
+      skip "create tests to make sure that the friend helpers are working"
     end
   end
 end
