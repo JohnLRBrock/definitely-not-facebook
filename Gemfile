@@ -48,10 +48,13 @@ group :development, :test do
   gem 'letter_opener', '~> 1.4.1'
   gem 'rubocop', '~> 0.48.1', require: false
   gem 'reek', '~>4.6.1'
+  gem 'factory_girl_rails', '~> 4.8'
 end
 
 group :test do
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'webmock', '~>3.0.1'
+  gem 'simplecov', :require => false
 end
 
 group :development do
