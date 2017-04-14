@@ -47,6 +47,7 @@ group :development, :test do
   gem 'rails-controller-testing', '~> 1.0.1'
   gem 'letter_opener', '~> 1.4.1'
   gem 'rubocop', '~> 0.48.1', require: false
+  gem 'reek', '~>4.6.1'
 end
 
 group :development do
