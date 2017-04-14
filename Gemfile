@@ -49,6 +49,7 @@ group :development, :test do
   gem 'rubocop', '~> 0.48.1', require: false
   gem 'reek', '~>4.6.1'
   gem 'factory_girl_rails', '~> 4.8'
+  gem 'capybara', '~> 2.10'
 end
 
 group :test do
