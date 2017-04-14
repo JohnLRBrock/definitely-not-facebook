@@ -5,12 +5,24 @@ RSpec.describe Comment, type: :model do
     User.destroy_all
     Post.destroy_all
     Comment.destroy_all
-    User.create(email:'adam@example.com', password: 'foobar', password_confirmation: 'foobar')
-    User.first.posts.build(body: "Hello World").save
-    User.first.comments.build(post_id: Post.first.id).save
+    User.create!(email:'adam@example.com', password: 'foobar', password_confirmation: 'foobar')
+    User.first.posts.build(body: "Hello World").save!
+    User.first.comments.build(post_id: Post.first.id, body: 'comment body').save!
   end
 
   let(:valid_params) { {user_id: User.first.id, body: "body" } }
+
+  describe 'attributes' do
+    it 'responds to #body' do
+      expect(Comment.first).to respond_to(:body)
+    end
+    it 'responds to #user' do
+      expect(Comment.first).to respond_to(:user)
+    end
+    it 'responds to #post' do
+      expect(Comment.first).to respond_to(:post)
+    end
+  end
 
   context "building comments without requisite attributes" do
     it "requires a post_id" do
