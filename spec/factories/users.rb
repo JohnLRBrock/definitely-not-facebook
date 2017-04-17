@@ -7,13 +7,16 @@ FactoryGirl.define do
     password 'foobar'
   end
   factory :post do
+    user
+    body 'postbody'
   end
   factory :comment do
+    user
+    post
+    body 'commentbody'
   end
   factory :like do
-  end
-  factory :friend_request do
-  end
-  factory :friend_request do
+    user
+    post
   end
 end
