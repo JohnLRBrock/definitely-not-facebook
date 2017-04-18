@@ -2,55 +2,29 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before(:all) do
-    @user = create(:user)
+  subject(:user) { create(:user) }
+
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:email) }
+    #it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
+  end
+
+  describe 'relationships' do
+    it { is_expected.to have_many(:posts) }
+    it { is_expected.to have_many(:comments) }
+    it { is_expected.to have_many(:likes) }
+    it { is_expected.to have_many(:friendships) }
+    it { is_expected.to have_many(:friends) }
+    it { is_expected.to have_many(:friend_requests) }
   end
 
   describe 'attributes' do
-    it 'responds to #name' do
-      expect(@user).to respond_to(:name)
-    end
-    it 'responds to #email' do
-      expect(@user).to respond_to(:email)
-    end
-    it 'responds to #location' do
-      expect(@user).to respond_to(:location)
-    end
-    it 'responds to #occupation' do
-      expect(@user).to respond_to(:occupation)
-    end
-    it 'responds to #age' do
-      expect(@user).to respond_to(:age)
-    end
-    it 'responds to #self_summary' do
-      expect(@user).to respond_to(:self_summary)
-    end
-
-=begin
-    it "doesn't allow duplicate emails" do
-      copy = User.new(name: 'adam', email: 'adam@example.com',
-                      password: 'foobar', password_confirmation: 'foobar')
-      expect(copy.save).to be false
-    end
-
-    it 'is case insensitive with emails' do
-      capital = User.new(name: 'AdAm', email: 'AdAm@eXaMpLe.cOm',
-                         password: 'foobar', password_confirmation: 'foobar')
-      expect(capital.save).to be false
-    end
-=end
-
-    it 'requires the existence of name' do
-      skip 'TODO'
-      nameless = User.new(email: 'nameless@example.com',
-                          password: 'foobar', password_confirmation: 'foobar')
-      expect(nameless.save).to be false
-    end
-
-    it 'requires the existence of email' do
-      emailless = User.new(name: 'emailless',
-                           password: 'foobar', password_confirmation: 'foobar')
-      expect(emailless.save).to be false
-    end
+    it { is_expected.to respond_to (:name) }
+    it { is_expected.to respond_to (:email) }
+    it { is_expected.to respond_to (:location) }
+    it { is_expected.to respond_to (:occupation) }
+    it { is_expected.to respond_to (:age) }
+    it { is_expected.to respond_to (:self_summary) }
   end
 end
