@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   before(:all) do
-    User.delete_all
-    User.create(email:'adam@example.com', password: 'foobar', password_confirmation: 'foobar')
+    create(:user)
   end
   context 'building a post without requisite attributes' do
     it 'needs a user' do
