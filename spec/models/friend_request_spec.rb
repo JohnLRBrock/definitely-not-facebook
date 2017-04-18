@@ -2,12 +2,7 @@ require 'rails_helper'
 
 RSpec.describe FriendRequest, type: :model do
   before(:all) do
-    User.destroy_all
-    FriendRequest.destroy_all
-    User.create!(name: 'adam', email:'adam@example.com',
-                 password: 'foobar', password_confirmation: 'foobar')
-    User.create!(name: 'eve', email:'eve@example.com',
-                 password: 'foobar',password_confirmation: 'foobar')
+    2.times { create(:user) }
   end
   context 'no friend_id' do
     it 'is not valid' do

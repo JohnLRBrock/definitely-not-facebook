@@ -2,9 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   before(:all) do
-    User.destroy_all
-    Post.destroy_all
-    Comment.destroy_all
     User.create!(email:'adam@example.com', password: 'foobar', password_confirmation: 'foobar')
     User.first.posts.build(body: "Hello World").save!
     User.first.comments.build(post_id: Post.first.id, body: 'comment body').save!

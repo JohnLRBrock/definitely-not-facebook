@@ -1,6 +1,7 @@
 # factory for generating users for tests
 FactoryGirl.define do
-  factory :user do
+  # alias friend is used with friendships and friend requests
+  factory :user, aliases: [:friend] do
     sequence :email do |n|
       "foo#{n}@bar.com"
     end
