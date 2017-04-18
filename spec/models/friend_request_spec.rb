@@ -4,6 +4,7 @@ RSpec.describe FriendRequest, type: :model do
   before(:all) do
     2.times { create(:user) }
   end
+  
   context 'no friend_id' do
     it 'is not valid' do
       friendless = FriendRequest.new(user_id: User.first.id)

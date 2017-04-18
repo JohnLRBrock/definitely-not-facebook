@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Like, type: :model do
   before(:all) do
-    User.delete_all
-    User.create(email:'adam@example.com', password: 'foobar', password_confirmation: 'foobar')
-    User.first.posts.build(body: "Hello World").save
+    create(:post)
   end
   context 'Building likes without requisite paramaters' do
     it 'requires a user_id' do

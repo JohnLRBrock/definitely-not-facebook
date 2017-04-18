@@ -2,22 +2,22 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   before(:all) do
-    User.create!(email:'adam@example.com', password: 'foobar', password_confirmation: 'foobar')
-    User.first.posts.build(body: "Hello World").save!
-    User.first.comments.build(post_id: Post.first.id, body: 'comment body').save!
+    @post     = create(:post)
+    @comment1 = @post.comments.create!(user_id: User.first.id, body: "first comment")
+    @comment2 = @post.comments.create!(user_id: User.first.id, body: "second comment")
   end
 
   let(:valid_params) { {user_id: User.first.id, body: "body" } }
 
   describe 'attributes' do
     it 'responds to #body' do
-      expect(Comment.first).to respond_to(:body)
+      expect(@comment1).to respond_to(:body)
     end
     it 'responds to #user' do
-      expect(Comment.first).to respond_to(:user)
+      expect(@comment1).to respond_to(:user)
     end
     it 'responds to #post' do
-      expect(Comment.first).to respond_to(:post)
+      expect(@comment1).to respond_to(:post)
     end
   end
 
@@ -51,13 +51,9 @@ RSpec.describe Comment, type: :model do
 
   context "scope: chronological_order" do
     it "orders them chronologically" do
-      post = User.first.posts.create!(body: "hello world")
-      comment1 = post.comments.create!(user_id: User.first.id, body: "first comment")
-      comment2 = post.comments.create!(user_id: User.first.id, body: "second comment")
-      #touch the first comment to change default order
-      comment1.touch
-
-      expect(post.reload.comments.chronological_order).to eq([comment1, comment2])
+      # touch the first comment to change default order
+      @comment1.touch
+      expect(@post.reload.comments.chronological_order).to eq([@comment1, @comment2])
     end
   end
 end
