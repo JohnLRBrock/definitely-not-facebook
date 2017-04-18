@@ -27,4 +27,8 @@ RSpec.describe User, type: :model do
     it { is_expected.to respond_to (:age) }
     it { is_expected.to respond_to (:self_summary) }
   end
+
+  describe 'devise' do
+    skip 'add tests for devise'
+  end
 end
