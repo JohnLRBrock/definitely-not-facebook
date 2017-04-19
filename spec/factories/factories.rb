@@ -9,18 +9,18 @@ FactoryGirl.define do
   end
 
   factory :post do
-    user
+    association :user
     body 'postbody'
   end
 
   factory :comment do
-    user
-    post
+    association :user
+    association :post
     body 'commentbody'
   end
 
   factory :like do
-    user
-    post
+    association :user
+    association :post
   end
 end

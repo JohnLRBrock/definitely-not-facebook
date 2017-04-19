@@ -9,7 +9,8 @@ RSpec.describe CommentsController, type: :controller do
     end
   end
 
-  describe "GET #destroy" do
+  describe "GET #de
+  eostroy" do
     it "returns http success" do
       get :destroy
       expect(response).to have_http_status(:success)

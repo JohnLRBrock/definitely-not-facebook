@@ -8,7 +8,10 @@ class UsersController < ApplicationController
 
   def show
     @friends = @user.friends
-    @posts = User.find(params[:id]).posts.order(created_at: :desc)
+    @posts = @user.posts#.chronological_order
+  end
+
+  def edit
   end
 
   def update
