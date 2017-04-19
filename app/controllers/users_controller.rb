@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @friends = @user.friends
-    @posts = @user.posts#.chronological_order
+    @friends = @user.friends.chronological_order
+    @posts = @user.posts.chronological_order
   end
 
   def edit
