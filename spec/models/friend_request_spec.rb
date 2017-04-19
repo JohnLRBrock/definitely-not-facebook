@@ -1,10 +1,15 @@
+# test specs for friend request model
 require 'rails_helper'
 
 RSpec.describe FriendRequest, type: :model do
+  subject(:friend_request) { FriendRequest.new(user_id:   create(:user).id,
+                                               friend_id: create(:user).id) }
   before(:all) do
     2.times { create(:user) }
   end
   
+  it { is_expected.to validate_presence_of(:user_id) }
+  it { is_expected.to validate_presence_of(:friend_id) }
   context 'no friend_id' do
     it 'is not valid' do
       friendless = FriendRequest.new(user_id: User.first.id)
