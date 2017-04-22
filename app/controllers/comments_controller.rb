@@ -5,6 +5,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    current_user.comments.find(params[:id]).destroy
+    redirect_to root_url
   end
 
   private

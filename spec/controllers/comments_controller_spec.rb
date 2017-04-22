@@ -7,30 +7,33 @@ RSpec.describe CommentsController, type: :controller do
                         { body: 'body', post_id: new_post.id }
                       }
 
-  before do
-    #request.env['devise.mapping'] = Devise.mappings[:user]
-    sign_in user
-  end
-
   describe 'POST #create' do
+    before { sign_in user }
     it 'incremement number of posts by 1' do
       expect do
         post :create, params: { comment: comment_attrs }
       end.to change(Post, :count).by(1)
     end
+
+    it 'redirects to root_url' do
+      post :create, params: { comment: comment_attrs }
+      expect(response).to redirect_to root_url
+    end
   end
 
   describe 'DELETE #destroy' do
-    it 'returns http success' do
-      comment = create(:comment)
-      delete :destroy, params: { comment: comment.id }
-      expect(response).to have_http_status(:success)
-    end
-    it 'recrements the number of posts by 1' do
-      comment = create(:comment)
+    let(:comment) { create(:comment) }
+    before { sign_in comment.user }
+
+    it 'decrements the number of posts by 1' do
       expect do
-        post :destroy, params: { comment: comment.id }
-      end.to change(Post, :count).by(-1)
+        post :destroy, params: { id: comment.id }
+      end.to change(Comment, :count).by(-1)
+    end
+
+    it 'redirects to root_url' do
+      delete :destroy, params: { id: comment.id }
+      expect(response).to redirect_to root_url
     end
   end
 end
