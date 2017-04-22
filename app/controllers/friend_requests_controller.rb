@@ -1,7 +1,8 @@
+# controller for handling friend requests
 class FriendRequestsController < ApplicationController
   include FriendRequestsHelper
   def index
-    @friends = current_user.friend_requests.pluck(:friend_id).uniq
+    @friends = current_user.friend_requests.chronological_order.pluck(:friend_id).uniq
   end
 
   def create
