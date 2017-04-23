@@ -4,11 +4,7 @@ class FriendshipsController < ApplicationController
     friend = User.find params[:friend_id]
     friend_user(friend)
     flash[:notice] = "You are now friends with #{friend.name}"
-    if any_requests?(current_user)
-      redirect_to friend_requests_url
-    else
-      redirect_to root_url
-    end
+    any_requests?(current_user) ? redirect_to(friend_requests_url) : redirect_to(root_url)
   end
 
   def destroy
