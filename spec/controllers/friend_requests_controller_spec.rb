@@ -46,7 +46,7 @@ RSpec.describe FriendRequestsController, type: :controller do
       expect(response).to redirect_to(friend)
     end
 
-    it 'returns http success' do
+    it 'returns http redirect' do
       friend = create(:user)
       post :create, params: { friend_id: friend.id }
       expect(response).to have_http_status(:redirect)

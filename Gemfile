@@ -50,6 +50,8 @@ group :development, :test do
   gem 'reek', '~>4.6.1'
   gem 'factory_girl_rails', '~> 4.8'
   gem 'capybara', '~> 2.10'
+  gem 'vcr'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
