@@ -1,3 +1,4 @@
+# test spec for like model
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do

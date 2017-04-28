@@ -2,7 +2,8 @@
 require 'rails_helper'
 
 RSpec.describe Friendship, type: :model do
-  before(:all) do
-    2.times { create(:user) }
-  end
+  subject(:friend_request) { FriendRequest.new(user_id:   create(:user).id,
+                                               friend_id: create(:user).id) }
+  it { is_expected.to validate_presence_of(:user_id) }
+  it { is_expected.to validate_presence_of(:friend_id) }
 end
