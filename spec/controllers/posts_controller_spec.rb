@@ -1,3 +1,4 @@
+# test spec for posts controller
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do

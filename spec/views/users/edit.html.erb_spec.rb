@@ -1,3 +1,4 @@
+# test spec for users edit view
 require 'rails_helper'
 
 RSpec.describe "users/edit", type: :view do

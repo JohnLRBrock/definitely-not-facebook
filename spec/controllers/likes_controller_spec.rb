@@ -1,3 +1,4 @@
+# test spec for likes controller
 require 'rails_helper'
 
 RSpec.describe LikesController, type: :controller do

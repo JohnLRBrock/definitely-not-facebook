@@ -7,21 +7,23 @@ RSpec.describe FriendRequest, type: :model do
   before(:all) do
     2.times { create(:user) }
   end
-  
   it { is_expected.to validate_presence_of(:user_id) }
   it { is_expected.to validate_presence_of(:friend_id) }
+
   context 'no friend_id' do
     it 'is not valid' do
       friendless = FriendRequest.new(user_id: User.first.id)
       expect(friendless.save).to be false
     end
   end
+
   context 'no user_id' do
     it 'is not valid' do
       userless = FriendRequest.new(friend_id: User.last.id)
       expect(userless.save).to be false
     end
   end
+
   context 'valid params' do
     it 'creates a new friend request' do
       request_count = FriendRequest.count
@@ -31,6 +33,7 @@ RSpec.describe FriendRequest, type: :model do
       expect(request_count + 1).to eq(FriendRequest.count)
     end
   end
+
   context 'attempt to friend yourself' do
     it 'fails' do
       reflexive_friend_request = FriendRequest.new(friend_id: User.first.id, 

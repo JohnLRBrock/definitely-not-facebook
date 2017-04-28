@@ -1,6 +1,4 @@
 # test spec for friend request controllers
-
-# implement a factory for creating friend requests
 require 'rails_helper'
 
 RSpec.describe FriendRequestsController, type: :controller do

@@ -1,3 +1,4 @@
+# test spec for users show view
 require 'rails_helper'
 
 RSpec.describe "users/show", type: :view do

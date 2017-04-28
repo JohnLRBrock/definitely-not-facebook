@@ -1,3 +1,4 @@
+# test spec for users new view
 require 'rails_helper'
 
 RSpec.describe "users/new", type: :view do

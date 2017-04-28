@@ -1,3 +1,4 @@
+# model to describe friend requests
 class FriendRequest < ApplicationRecord
   belongs_to :user
   validate :stop_friending_yourself, :duplicate_friend_request, :already_friends

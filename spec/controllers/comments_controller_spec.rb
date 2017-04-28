@@ -1,3 +1,4 @@
+# test spec for comments controller
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do

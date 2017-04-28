@@ -36,8 +36,4 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many :friends }
     it { is_expected.to have_many :friend_requests }
   end
-
-  describe 'devise' do
-    skip 'add tests for devise'
-  end
 end
