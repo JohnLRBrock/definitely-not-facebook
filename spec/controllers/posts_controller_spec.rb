@@ -25,7 +25,7 @@ RSpec.describe PostsController, type: :controller do
       expect(assigns(:posts).count).to eq(@posts.count)
     end
   end
-  describe 'post create' do
+  describe 'POST create' do
     let(:post_params) { 
                         { body: 'text' }
                       }

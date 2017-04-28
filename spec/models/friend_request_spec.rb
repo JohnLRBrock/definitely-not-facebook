@@ -35,19 +35,39 @@ RSpec.describe FriendRequest, type: :model do
     it 'fails' do
       reflexive_friend_request = FriendRequest.new(friend_id: User.first.id, 
                                                    user_id: User.first.id)
-      expect(reflexive_friend_request.save).to be false
+      expect(reflexive_friend_request.valid?).to be false
     end
   end
 
   context 'friend request already exists' do
-    it 'fails to save' do
-      skip "create tests to make sure that the friend helpers are working"
+    context 'user has friend request' do
+      it 'fails' do
+        user = create(:user)
+        friend = create(:user)
+        user.friend_requests.create(friend_id: friend.id)
+        second_friend_request = FriendRequest.new(friend_id: friend.id, user_id: user.id)
+        expect(second_friend_request.valid?).to be false
+      end
+    end
+    context 'friend has friend request' do
+      it 'fails' do
+        user = create(:user)
+        friend = create(:user)
+        friend.friend_requests.create(friend_id: user.id)
+        second_friend_request = FriendRequest.new(friend_id: user.id, user_id: friend.id)
+        expect(second_friend_request.valid?).to be false
+      end
     end
   end
 
   context 'friendship already exists' do
-    it 'fails to save' do
-      skip "create tests to make sure that the friend helpers are working"
+    it 'fails' do
+      user = create(:user)
+      friend = create(:user)
+      user.friends << friend
+      friend.friends << user
+      already_friends = FriendRequest.new(friend_id: user.id, user_id: friend.id)
+      expect(already_friends.valid?).to be false
     end
   end
 end
