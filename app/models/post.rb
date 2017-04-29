@@ -5,4 +5,6 @@ class Post < ApplicationRecord
   belongs_to :user
 
   validates :user_id, :body, presence: true
+
+  scope :feed, ->(ids) { where(user_id: ids).order(created_at: :desc) }
 end

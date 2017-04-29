@@ -22,6 +22,6 @@ class PostsController < ApplicationController
       ids = [current_user.id]
       ids << current_user.friend_ids
       ids = ids.flatten
-      Post.where(user_id: ids).order(created_at: :desc)
+      Post.feed(ids)
     end
 end

@@ -5,6 +5,7 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
+require 'webmock/rspec'
 require 'support/factory_girl'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -59,6 +60,8 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :helper
   config.include Devise::Test::ControllerHelpers, type: :view
+  config.include FactoryGirl::Syntax::Methods
+  config.include Warden::Test::Helpers
 end
 
 Shoulda::Matchers.configure do |config|
@@ -66,4 +69,9 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+VCR.configure do |c|
+  c.cassette_library_dir  = Rails.root.join("spec", "vcr")
+  c.hook_into :webmock
 end
