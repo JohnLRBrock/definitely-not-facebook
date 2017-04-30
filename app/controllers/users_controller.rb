@@ -22,10 +22,13 @@ class UsersController < ApplicationController
     end
   end
 
+# there is no escape
+=begin
   def destroy
     current_user.destroy
     redirect_to users_url, notice: 'User was successfully destroyed.'
   end
+=end
 
   private
     def set_user
