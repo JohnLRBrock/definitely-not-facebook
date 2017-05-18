@@ -5,12 +5,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to Definitely Not Facebook, <%= @user.name %></h1>
+    <h1>Welcome to The Dog Park, <%= @user.name %></h1>
     <p>
-      You have successfully signed up to Definitely Not Facebook.<br>
+      You have successfully signed up to The Dog Park, the first social network only for dogs.<br>
     </p>
     <p>
-      To login to the site, just follow this link: <%= @url %>.
+      To login to the site, just follow this link: <%= link_to "The Dog Park", @url %>.
     </p>
     <p>Thanks for joining and have a great day!</p>
   </body>
