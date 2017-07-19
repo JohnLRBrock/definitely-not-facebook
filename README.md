@@ -1,11 +1,11 @@
-2017-03-28
-John Brock
-Odin Project
+The world's first social network for dogs. The Dog Park is a facebook clone made for the Ruby on Rails final project at the Odin Project.
+
 http://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project
 
-Final Project: Facebook Clone
+Features include friendships, posts, comments, likes, and more. The app has a Rails back end, postgresql database, authentication system with devise, authentication through facebook using omniauth, and is hosted on Heroku. 
 
-Things used in project: 
-  Multiple models with different relationships and validations
-  Authentication with devise
-  Test Driven Development
+Making this project I learned about integrating third party systems into apps, namely devise and omniauth, as well as how to handle working on large, complex systems, and about the joys of test driven development.
+
+https://the-dog-park.herokuapp.com/
+
+JohnBrock.io
