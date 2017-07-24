@@ -62,9 +62,9 @@ hr {
 
 a {
   text-decoration: none;
-  color: #2c8898; }
+  color: red; }
   a:hover {
-    color: #982c61;
+    color: #red;
     border-bottom: 2px solid #4a4a4a; }
 
 ul {
@@ -158,3 +158,20 @@ label, legend, fieldset {
   display: block;
   margin-bottom: .5rem;
   font-weight: 600; }
+
+/* background on login page*/
+#big_ol_pupper {
+  background: url("/assets/short-haired.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+.pupper_link {
+  color: red;
+}
+.transparent { 
+  color: rgb(200,200,200);
+  background-color: rgba(50,50,50,0.5); }
+.center {
+  margin: auto;
+}
