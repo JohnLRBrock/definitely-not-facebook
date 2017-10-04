@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # TODO: redundant because of call from application controller?
   before_action :authenticate_user!
 
   def index
