@@ -1,5 +1,5 @@
 # What happened to The Dog Park?
-I had the idea of creating a social network that purportedly catored to dogs but decided that it would serve me better in it's originally intended form, a facebook clone. I still maintain would be a good joke (@ me if you want to help me make a legit one) but I'll slowly transition into a fully fleged facebook clone. Any reference to dogs is for that reason.
+I had the idea of creating a social network that purportedly catored to dogs but decided that it would serve me better in it's originally intended form, a facebook clone. I still maintain would be a good joke (@ me if you want to help me make a legit one) but I'll slowly transition into a fully fledged facebook clone. Any reference to dogs is for that reason.
 -----
 The world's first social network for dogs. The Dog Park is a facebook clone made for the Ruby on Rails final project at the Odin Project.
 
