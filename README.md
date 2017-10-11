@@ -11,4 +11,6 @@ Making this project I learned about integrating third party systems into apps, n
 
 https://the-dog-park.herokuapp.com/
 
+To work the app requires a several environment variables including a database username and password, Facebook app ID and secret sendgrid username and password and database secrets. I'm using Figaro to store these secrets in an untracked application.yml file. I may eventually upgrade to a newer version of rails and use the new secrets feature.
+
 JohnBrock.io
