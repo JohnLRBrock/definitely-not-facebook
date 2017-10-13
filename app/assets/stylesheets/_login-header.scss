@@ -1,0 +1,14 @@
+#login-header {
+  height: 260px;
+  width: 100%;
+  background-color: $brand-blue;
+  display: flex;
+  .definitely-not-logo {
+    color: white;
+    font-weight: 700;
+    font-size: 42px;
+    text-decoration: none;
+    align-self: flex-start; }
+  #new_user {
+    align-selft: flex-end; }
+}
