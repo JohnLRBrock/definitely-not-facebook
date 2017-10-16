@@ -1,6 +1,14 @@
+$width: 950px;
 .wrapper {
-  width: 950px;
+  width: $width;
   margin: 0 auto;
+}
+main {
+  background-color: #E6E8EC;
+}
+.column {
+  display: inline-block;
+  width: calc($width / 2);
 }
 #login-header {
   height: 80px;
