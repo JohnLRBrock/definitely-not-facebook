@@ -1,7 +1,7 @@
 # model to describe users
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :omniauthable,
+         :recoverable, :trackable, :omniauthable,
          :validatable, omniauth_providers: [:facebook]
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy

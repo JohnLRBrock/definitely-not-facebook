@@ -1,14 +1,39 @@
+.wrapper {
+  width: 950px;
+  margin: 0 auto;
+}
 #login-header {
-  height: 260px;
+  height: 80px;
   width: 100%;
   background-color: $brand-blue;
-  display: flex;
+  padding-top: 5px;
   .definitely-not-logo {
     color: white;
     font-weight: 700;
     font-size: 42px;
     text-decoration: none;
-    align-self: flex-start; }
+    align-self: flex-start;
+    margin-right: 15px;
+  }
   #new_user {
-    align-selft: flex-end; }
+    // width: 370px;
+    display: inline-block; }
+  .field, .actions {
+    display: inline-block;
+  }
+  #user_email, #user_password {
+    width: 150px;
+  }
+  .actions * {
+    width: 50px;
+    font-size: 12px;
+    text-align: center;
+  }
+  label {
+    color: white;
+  }
+  input[type=password], input[type=email] {
+    margin-top: 2px;
+    border: none;
+  }
 }
