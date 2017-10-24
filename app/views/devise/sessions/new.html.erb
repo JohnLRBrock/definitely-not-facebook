@@ -3,38 +3,42 @@
     <%= link_to 'definitely not facebook', root_path, title: 'Go to Definitely Not Facebook Home', class: 'definitely-not-logo' %>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
-        <%= f.label :email_or_Phone %><br />
-        <%= f.email_field :email, autofocus: true %>
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %><br>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+            <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+          <% end -%>
       </div>
 
       <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.label :password %><br>
+        <%= f.password_field :password, autocomplete: "off" %><br>
+        <%= link_to "Forgot password?", new_password_path(resource_name) %><br />
       </div>
 
       <div class="actions">
         <%= f.submit "Log in" %>
       </div>
+      <!-- <%= render "devise/shared/links" %> -->
     <% end %>
   </div>
 </header>
 <main>
-  <div class="wrapper">
-    <div class="column">
-      <h2>Connect with fiends and the world around you on Facebook.</h2>
+  <div class="container">
+    <div class="column left">
+      <h2 id="connect-with-friends">Connect with fiends and the world around you on Facebook.</h2>
       <ul>
-        <li>See photos and updates <span class="faded">from friends in News Feed.</span></li>
-        <li>Share what's new <span class="faded">in your life on your Timeline.</span></li>
-        <li>Find More <span class="faded">of what you're looking for with Facebook Search.</span></li>
+        <li><%= image_tag "photos" %>See photos and updates <span class="faded">from friends in News Feed.</span></li>
+        <li><%= image_tag "share" %>Share what's new <span class="faded">in your life on your Timeline.</span></li>
+        <li><%= image_tag "find-more" %>Find More <span class="faded">of what you're looking for with Facebook Search.</span></li>
       </ul>
     </div>
-    <div class="column">
-      <h1>Sign Up</h1>
+    <div class="column right">
+      <h1 id="sign-up-header">Sign Up</h1>
       <h3>It's free and always will be.</h3>
       <p>sign up form goes here</p>
     </div>   
   </div>
 </main>
 <footer>
-  <%= render "devise/shared/links" %>
 </footer>

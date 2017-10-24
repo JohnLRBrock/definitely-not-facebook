@@ -6,10 +6,36 @@ $width: 950px;
 main {
   background-color: #E6E8EC;
 }
-.column {
-  display: inline-block;
-  width: calc($width / 2);
+.container {
+  width: $width;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row;
 }
+.column {
+  h3 {
+    font-size: 18px;
+  }
+}
+.right {
+  width: 399px;
+}
+.left {
+  width: 565px;
+}
+#connect-with-friends {
+  font-size: 26px;
+}
+
+#sign-up-header {
+  font-size: 32px;
+  display: flex;
+}
+#new_user a, #new_user a:hover, #new_user a:visited, #new_user a:link, #new_user a:active {
+  color: #9cb4d8;
+  text-decoration: none;
+}
+
 #login-header {
   height: 80px;
   width: 100%;
@@ -18,7 +44,7 @@ main {
   .definitely-not-logo {
     color: white;
     font-weight: 700;
-    font-size: 42px;
+    font-size: 32px;
     text-decoration: none;
     align-self: flex-start;
     margin-right: 15px;
